@@ -22,8 +22,28 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //为众多框架 API 提供兼容性包装器，例如 Context.obtainDrawable() 和 View.performAccessibilityAction()
+    compile "com.android.support:support-compat:26.1.0"
+
+    //提供大量实用程序类，例如 AsyncTaskLoader 和 PermissionChecker
     compile "com.android.support:support-core-utils:26.1.0"
+
+    //实现各种 UI 相关组件，例如 ViewPager、NestedScrollView 和 ExploreByTouchHelper
+    compile "com.android.support:support-core-ui:26.1.0"
+
+    //向后移植部分媒体框架，包括 MediaBrowser 和 MediaSession。
+    compile "com.android.support:support-media-compat:26.1.0"
+
+    //添加对使用片段封装用户界面和功能的支持，从而使应用能够提供可以在大屏幕设备与小屏幕设备之间进行调节的布局。
+    // 此模块依赖于 compat、core-utils、core-ui 和 media-compat。
+    compile "com.android.support:support-fragment:26.1.0"
+
+    //此库添加了对操作栏用户界面设计模式的支持。此库包含对 Material Design 用户界面实现的支持。
+    compile "com.android.support:appcompat-v7:26.1.0"
 }
