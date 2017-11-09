@@ -18,6 +18,13 @@ public class Main2Activity extends AppCompatActivity {
         WebView myWebView = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
+        /**
+         * MIXED_CONTENT_ALWAYS_ALLOW：允许从任何来源加载内容，即使起源是不安全的；
+         * MIXED_CONTENT_NEVER_ALLOW：不允许Https加载Http的内容，即不允许从安全的起源去加载一个不安全的资源；
+         * MIXED_CONTENT_COMPATIBILITY_MODE：当涉及到混合式内容时，WebView 会尝试去兼容最新Web浏览器的风格。
+         **/
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             myWebView.getSettings().setMixedContentMode(
                     WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
@@ -32,6 +39,7 @@ public class Main2Activity extends AppCompatActivity {
                 // handleMessage(Message msg);// 进行其他处理
             }
         });
+        myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
 //        myWebView.loadUrl("http://127.0.0.1:8080/entry/html/index.html#/");
         myWebView.loadUrl("http://10.25.16.46:8000/entry/html/index.html#/");
 //        myWebView.loadUrl("https://www.baidu.com");
